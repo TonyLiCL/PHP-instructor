@@ -7,6 +7,7 @@
 </head>
 <body>
  <h1>計算BMI</h1>   
+ <h2>使用GET</h2>
  <form action="bmi_result.php" method='get'>
     <div>
         <label for="height">身高:</label>
@@ -21,6 +22,8 @@
         <input type="reset" value="清除重算">
     </div>
  </form>
+
+ <h2>使用post</h2>
  <form action="bmi_result.php" method='post'>
     <div>
         <label for="height">身高:</label>
@@ -35,5 +38,9 @@
         <input type="reset" value="清除重算">
     </div>
  </form>
+
+<h2>使用a標籤來代替get</h2>
+<a href='bmi_result.php?weight=100&height=180'>計算BMI</a>
+
 </body>
 </html>
