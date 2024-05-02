@@ -8,7 +8,7 @@ if($acc=='admin'  && $pw=='1234' ){
 }else{
 //如果有一不正確
 
-    header("location:error.php");
+    header("location:error.php?acc=$acc");
 }
 
 
