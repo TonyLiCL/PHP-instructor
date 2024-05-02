@@ -66,8 +66,11 @@
     <input type="submit" value="送出">
 </form>
 <?php 
-$month=(isset($_GET['month']))?$_GET['month']:date("m");
-$year=(isset($_GET['year']))?$_GET['year']:date("Y");
+//$month=(isset($_GET['month']))?$_GET['month']:date("m");    
+$month=$_GET['month']??date("m");
+
+//$year=(isset($_GET['year']))?$_GET['year']:date("Y");
+$year=$_GET['year']??date("Y");
 
 
 echo "年".$year;
@@ -90,21 +93,31 @@ for($i=0;$i<42;$i++){
     $days[]=date("Y-m-d",strtotime("$diff days",$firstDay));
 }
 
-if($month+1>12){
-
-}
 if($month-1<1){
+    $prev=12;
+    $prev_year=$year-1;
+}else{
+    $prev=$month-1;
+    $prev_year=$year;
+}
 
+if($month+1>12){
+    $next=1;
+    $next_year=$year+1;
+
+}else{
+    $next=$month+1;
+    $next_year=$year;
 }
 
 ?>
 <div style="width:384px;">
-    <a href="calendar.php?month=<?=$prev;?>" style="float:left">上一個月</a>
-    <a href="calendar.php?month=<?=$next;?>" style="float:right">下一個月</a>
+    <a href="calendar.php?year=<?=$prev_year;?>&month=<?=$prev;?>" style="float:left">上一個月</a>
+    <a href="calendar.php?year=<?=$next_year;?>&month=<?=$next;?>" style="float:right">下一個月</a>
 </div>
 
 <div style='clear:both'></div>
-
+<h3><?=$year;?>年 <?=$month;?>月</h3>
 <?php
 
 echo "<div class='block-table'>";
