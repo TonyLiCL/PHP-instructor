@@ -97,8 +97,8 @@ for($i=0;$i<42;$i++){
 }
 ?>
 <div style="width:384px;">
-    <a href="#" style="float:left">上一個月</a>
-    <a href="#" style="float:right">下一個月</a>
+    <a href="calendar.php?month=<?=($month-1);?>" style="float:left">上一個月</a>
+    <a href="calendar.php?month=<?=($month+1);?>" style="float:right">下一個月</a>
 </div>
 
 <div style='clear:both'></div>
