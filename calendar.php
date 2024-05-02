@@ -19,6 +19,7 @@
     width:380px;
     display:flex;
     flex-wrap:wrap;
+    justify-content: center;
 }
 .item{
     margin-left:-1px;
@@ -56,36 +57,25 @@
     background:pink;
 }
      
+.nav{
+    display:inline-block;
+    width:32.5%;
+    margin:5px 0;
+}
     </style>
 </head>
 <body>
- <h2>萬年曆</h2>
-<form action="?" method="get">
-    <label for="month"></label>
-    <input type="number" name='month' value="<?=date("m");?>">
-    <input type="submit" value="送出">
-</form>
+ <h2 style='width:384px;text-align:center'>萬年曆</h2>
+
 <?php 
 //$month=(isset($_GET['month']))?$_GET['month']:date("m");    
 $month=$_GET['month']??date("m");
-
 //$year=(isset($_GET['year']))?$_GET['year']:date("Y");
 $year=$_GET['year']??date("Y");
-
-
-echo "年".$year;
-echo "<BR>";
-echo "月份:".$month;
-echo "<br>";
 $firstDay=strtotime(date("$year-$month-1"));
 $firstWeekStartDay=date("w",$firstDay);
-echo "第一周的開始是第".$firstWeekStartDay."日";
 $days=date("t",$firstDay);
 $lastDay=strtotime(date("Y-$month-$days"));
-echo "<br>";
-echo "最後一天是".date("Y-m-d",$lastDay);
-
-$birthday='1974-4-1';
 
 $days=[];
 for($i=0;$i<42;$i++){
@@ -112,12 +102,20 @@ if($month+1>12){
 
 ?>
 <div style="width:384px;">
-    <a href="calendar.php?year=<?=$prev_year;?>&month=<?=$prev;?>" style="float:left">上一個月</a>
-    <a href="calendar.php?year=<?=$next_year;?>&month=<?=$next;?>" style="float:right">下一個月</a>
+ <div class="nav" style="text-align: left;">
+     <a href="calendar.php?year=<?=$prev_year;?>&month=<?=$prev;?>">上一個月</a>
+
+ </div>
+ <div class="nav" style="text-align: center;">
+
+     <?=$year;?>年 <?=$month;?>月
+ </div>
+ <div class="nav" style="text-align: right;">
+     <a href="calendar.php?year=<?=$next_year;?>&month=<?=$next;?>">下一個月</a>
+
+ </div>
 </div>
 
-<div style='clear:both'></div>
-<h3><?=$year;?>年 <?=$month;?>月</h3>
 <?php
 
 echo "<div class='block-table'>";
