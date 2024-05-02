@@ -66,18 +66,15 @@
     <input type="submit" value="送出">
 </form>
 <?php 
-if(isset($_GET['month'])){
+$month=(isset($_GET['month']))?$_GET['month']:date("m");
+$year=(isset($_GET['year']))?$_GET['year']:date("Y");
 
-    $month=$_GET['month'];
-}else{
-    $month=date('m');
-}
-$year=date("Y");
+
 echo "年".$year;
 echo "<BR>";
 echo "月份:".$month;
 echo "<br>";
-$firstDay=strtotime(date("Y-$month-1"));
+$firstDay=strtotime(date("$year-$month-1"));
 $firstWeekStartDay=date("w",$firstDay);
 echo "第一周的開始是第".$firstWeekStartDay."日";
 $days=date("t",$firstDay);
@@ -86,19 +83,24 @@ echo "<br>";
 echo "最後一天是".date("Y-m-d",$lastDay);
 
 $birthday='1974-4-1';
-?>
-
-<?php 
 
 $days=[];
 for($i=0;$i<42;$i++){
     $diff=$i-$firstWeekStartDay;
     $days[]=date("Y-m-d",strtotime("$diff days",$firstDay));
 }
+
+if($month+1>12){
+
+}
+if($month-1<1){
+
+}
+
 ?>
 <div style="width:384px;">
-    <a href="calendar.php?month=<?=($month-1);?>" style="float:left">上一個月</a>
-    <a href="calendar.php?month=<?=($month+1);?>" style="float:right">下一個月</a>
+    <a href="calendar.php?month=<?=$prev;?>" style="float:left">上一個月</a>
+    <a href="calendar.php?month=<?=$next;?>" style="float:right">下一個月</a>
 </div>
 
 <div style='clear:both'></div>
