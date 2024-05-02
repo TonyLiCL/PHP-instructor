@@ -14,5 +14,9 @@ $acc=$_GET['acc'];
 ?>
 
 歡迎<?=$_GET['acc'];?>
+
+<p>
+        <a href="login.php?login=1">回登入頁</a>
+    </p>
 </body>
 </html>

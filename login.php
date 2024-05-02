@@ -7,6 +7,13 @@
 </head>
 <body>
     <h1>請登入</h1>
+    <?php
+    if(isset($_GET['login']) && $_GET['login']==1){
+        
+        echo "已登入";
+
+    }else{
+    ?>
     <form action="check.php" method="post">
         <div>
             <label for="acc">帳號:</label>
@@ -21,5 +28,8 @@
             <input type="reset" value="重置">
         </div>
     </form>
+    <?php
+     }
+    ?>
 </body>
 </html>
