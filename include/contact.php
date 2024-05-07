@@ -48,9 +48,13 @@
             text-align: center;
             width:1000px;
         }
+        .active{
+            background-color:skyblue;
+        }
     </style>
 </head>
 <body>
+<?php $file=explode(".",basename(__FILE__))[0];?>   
 <?php include_once "./layouts/header.php";?>
 <?php include_once "./layouts/nav.php";?>
 <marquee>這是一段跑馬燈</marquee>
