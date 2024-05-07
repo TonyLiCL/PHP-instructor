@@ -60,24 +60,12 @@
 <marquee>這是一段跑馬燈</marquee>
 <?php 
     //include "./pages/main.php";
-    $page=isset($_GET['page'])?$_GET['page']:'index';
-    switch($page){
-        case 'index':
-            include "./pages/main.php";
-        break;
-        case 'news':
-            include "./pages/news.php";
-        break;
-        case 'products':
-            include "./pages/products.php";
-        break;
-        case 'contact':
-            include "./pages/contact.php";
-        break;
-        case 'guestbook':
-            include "./pages/guestbook.php";
-        break;
-        default:
+    $page=isset($_GET['page'])?$_GET['page']:'main';
+    $file="./pages/{$page}.php";
+    if(file_exists($file)){
+
+        include $file;
+    }else{
         include "./pages/main.php";
     }
 
