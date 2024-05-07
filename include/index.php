@@ -54,13 +54,13 @@
     </style>
 </head>
 <body>
-<?php $file=explode(".",basename(__FILE__))[0];?>
+<?php $page=isset($_GET['page'])?$_GET['page']:'main';?>
 <?php include_once "./layouts/header.php";?>
 <?php include_once "./layouts/nav.php";?>
 <marquee>這是一段跑馬燈</marquee>
 <?php 
     //include "./pages/main.php";
-    $page=isset($_GET['page'])?$_GET['page']:'main';
+
     $file="./pages/{$page}.php";
     if(file_exists($file)){
 
