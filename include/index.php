@@ -58,7 +58,32 @@
 <?php include_once "./layouts/header.php";?>
 <?php include_once "./layouts/nav.php";?>
 <marquee>這是一段跑馬燈</marquee>
-<main>主要內容</main>
+<?php 
+    //include "./pages/main.php";
+    $page=isset($_GET['page'])?$_GET['page']:'index';
+    switch($page){
+        case 'index':
+            include "./pages/main.php";
+        break;
+        case 'news':
+            include "./pages/news.php";
+        break;
+        case 'products':
+            include "./pages/products.php";
+        break;
+        case 'contact':
+            include "./pages/contact.php";
+        break;
+        case 'guestbook':
+            include "./pages/guestbook.php";
+        break;
+        default:
+        include "./pages/main.php";
+    }
+
+
+?>
+
 <footer>頁腳</footer>
 </body>
 </html>
