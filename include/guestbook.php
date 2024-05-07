@@ -53,8 +53,9 @@
 <body>
 <?php include_once "./layouts/header.php";?>
 <?php include_once "./layouts/nav.php";?>
+
 <marquee>這是一段跑馬燈</marquee>
-<main>最新消息</main>
+<main>歡迎留言</main>
 <footer>頁腳</footer>
 </body>
 </html>
